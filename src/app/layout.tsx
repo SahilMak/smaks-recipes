@@ -1,6 +1,7 @@
 import type { Metadata } from 'next'
 import { Gayathri } from 'next/font/google'
 import { AppRouterCacheProvider } from '@mui/material-nextjs/v14-appRouter';
+import CssBaseline from '@mui/material/CssBaseline';
 import { ThemeProvider } from '@mui/material/styles';
 import theme from '../theme';
 import './globals.scss'
@@ -27,6 +28,7 @@ export default function RootLayout({
       <body className={gayathri.variable}>
         <AppRouterCacheProvider>
           <ThemeProvider theme={theme}>
+            <CssBaseline enableColorScheme />
             {children}
           </ThemeProvider>
         </AppRouterCacheProvider>

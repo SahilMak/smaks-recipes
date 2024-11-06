@@ -7,52 +7,58 @@ const theme = createTheme({
         light: {
             palette: {
                 primary: {
-                    main: '#33c9dc',
+                    main: '#33C9DC',
                 },
                 secondary: {
-                    main: '#dcb733',
+                    main: '#DCB733',
                 },
                 error: {
-                    main: '#dc6333',
+                    main: '#DC6333',
                 },
                 warning: {
-                    main: '#dc9333',
+                    main: '#DC9333',
                 },
                 info: {
-                    main: '#9333dc',
+                    main: '#9333DC',
                 },
                 success: {
-                    main: '#7cdc33',
+                    main: '#7CDC33',
                 },
                 background: {
                     default: '#E9EFF0',
                     paper: '#E9EFF0',
+                },
+                text: {
+                    primary: '#171D1E',
                 },
             },
         },
         dark: {
             palette: {
                 primary: {
-                    main: '#33c9dc',
+                    main: '#33C9DC',
                 },
                 secondary: {
-                    main: '#dcb733',
+                    main: '#DCB733',
                 },
                 error: {
-                    main: '#dc6333',
+                    main: '#DC6333',
                 },
                 warning: {
-                    main: '#dc9333',
+                    main: '#DC9333',
                 },
                 info: {
-                    main: '#9333dc',
+                    main: '#9333DC',
                 },
                 success: {
-                    main: '#7cdc33',
+                    main: '#7CDC33',
                 },
                 background: {
                     default: '#0E1415',
                     paper: '#0E1415',
+                },
+                text: {
+                    primary: '#DEE3E5',
                 },
             },
         },

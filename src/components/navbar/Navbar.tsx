@@ -5,6 +5,7 @@ import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
 import Container from '@mui/material/Container';
+import IconButton from '@mui/material/IconButton';
 import InputBase from '@mui/material/InputBase';
 import Menu from '@mui/material/Menu';
 import MenuItem from '@mui/material/MenuItem';
@@ -54,7 +55,6 @@ export default function Navbar(props: any) {
 				const obj = pages.find((page) => page.text === tabText);
 				router.push(obj!.link);
 			} else {
-				console.log(tabText);
 				setOpenMenu(tabText);
 				setAnchorEl(event.currentTarget);
 			}
@@ -64,7 +64,7 @@ export default function Navbar(props: any) {
 	};
 
 	return (
-		<AppBar position="fixed">
+		<AppBar position="sticky">
 			<Container>
 				<Toolbar disableGutters>
 					<Typography
@@ -87,7 +87,7 @@ export default function Navbar(props: any) {
 							color="inherit"
 							onClick={handleOpen}
 							variant="text"
-							sx={{ my: 2, display: 'block'}}
+							sx={{ my: 2}}
 						>
 							{ page.text }
 						</Button>

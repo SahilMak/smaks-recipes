@@ -1,7 +1,6 @@
 'use client';
 import React, { useState } from 'react';
-import { useRouter } from 'next/navigation'; 
-import { Shrikhand } from 'next/font/google';
+import { useRouter } from 'next/navigation';
 import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
@@ -12,13 +11,8 @@ import MenuItem from '@mui/material/MenuItem';
 import SearchIcon from '@mui/icons-material/Search';
 import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
-
-const shrikhand = Shrikhand({
-  weight: ['400'],
-  subsets: ['latin'],
-  display: 'swap',
-  variable: '--font-shrikhand'
-});
+import { shrikhand } from '@/fonts';
+import './navbar.scss';
 
 const pages = [
 	{text: 'HOME', link: '/'},
@@ -51,16 +45,17 @@ const cuisine = [
 
 export default function Navbar(props: any) {
   const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null);
+	const [openMenu, setOpenMenu] = useState('');
 	const router = useRouter();
   const open = Boolean(anchorEl);
-	let openMenu = '';
   const handleOpen = (event: React.MouseEvent<HTMLButtonElement>) => {
 			const tabText: string = event.currentTarget.innerText;
 			if (tabText === 'HOME' || tabText === 'ABOUT') {
 				const obj = pages.find((page) => page.text === tabText);
 				router.push(obj!.link);
 			} else {
-				openMenu = tabText;
+				console.log(tabText);
+				setOpenMenu(tabText);
 				setAnchorEl(event.currentTarget);
 			}
   };
@@ -78,7 +73,7 @@ export default function Navbar(props: any) {
 						noWrap
 						component="div"
 						variant="h1"
-						sx={{ display: { xs: 'none', sm: 'flex' }, fontSize: '3rem', mr: 1 }}
+						sx={{ display: { xs: 'none', sm: 'flex' }, mr: 1 }}
 					>
 						Smak&apos;s Recipes
 					</Typography>
@@ -91,7 +86,8 @@ export default function Navbar(props: any) {
 							key={page.text}
 							color="inherit"
 							onClick={handleOpen}
-							sx={{ my: 2, display: 'block' }}
+							variant="text"
+							sx={{ my: 2, display: 'block'}}
 						>
 							{ page.text }
 						</Button>
@@ -101,7 +97,7 @@ export default function Navbar(props: any) {
 							open={open}
 							onClose={handleClose}
 						>
-						{(openMenu === 'MEALS' ? meals : cuisine).map((obj) => (
+						{(openMenu === 'MEALS' ? meals : cuisine).map((obj: any) => (
 							<MenuItem
 								key={obj.text}
 								divider

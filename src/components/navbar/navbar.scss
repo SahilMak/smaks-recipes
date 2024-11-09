@@ -1,18 +1,47 @@
-.MuiTypography-h1 {
-	font-size: 3rem !important;
-	margin-right: calc(2 * var(--mui-spacing) + 6px) !important;
-}
+.MuiAppBar-positionSticky {
+	background-image: none !important;
+	min-height: 6vh !important;
 
-.MuiButton-text {
-	font-size: 1.25rem !important;
-	font-weight: 700 !important;
-	margin: 0 !important;
-	padding: calc(2 * var(--mui-spacing) + 6px) 10px !important;
+	.MuiContainer-root {
+		min-height: inherit !important;
+
+		.MuiToolbar-root {
+			min-height: inherit !important;
+
+			.MuiTypography-h1 {
+				font-size: 3em !important;
+				margin-right: calc(2 * var(--mui-spacing) + 6px) !important;
+			}
+
+			.MuiBox-root {
+				min-height: inherit !important;
+
+				.MuiButton-text {
+					border-radius: 0 !important;
+					display: block !important;
+					font-size: 1.5em !important;
+					font-weight: 700 !important;
+					margin: 0 !important;
+					padding: calc(2 * var(--mui-spacing) + 6px) 10px !important;
+					width: 7rem !important;
+			
+					&:hover {
+						background-color: var(--mui-palette-primary-dark) !important;
+					}
+				}
+			}
+		}
+	}
 }
 
 .MuiMenu-root {
 	.MuiMenuItem-root {
-		font-size: 1.1rem !important;
+		font-size: 1.1em !important;
 		padding: 10px 16px !important;
+
+		&:hover {
+			background-color: var(--mui-palette-secondary-main);
+			color: var(--mui-palette-secondary-contrastText);
+		}
 	}
 }

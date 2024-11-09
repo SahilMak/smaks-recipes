@@ -1,18 +1,11 @@
 import type { Metadata } from 'next'
-import { Gayathri } from 'next/font/google'
+import { gayathri } from '@/fonts';
 import { AppRouterCacheProvider } from '@mui/material-nextjs/v14-appRouter';
 import CssBaseline from '@mui/material/CssBaseline';
 import { ThemeProvider } from '@mui/material/styles';
 import Navbar from '@/components/navbar/Navbar';
 import theme from '../theme';
 import './globals.scss'
-
-const gayathri = Gayathri({
-  weight: ['100', '400', '700'],
-  subsets: ['latin'],
-  display: 'swap',
-  variable: '--font-gayathri'
-});
 
 export const metadata: Metadata = {
   title: 'Smak\'s Recipes',

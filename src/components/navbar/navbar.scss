@@ -1,0 +1,18 @@
+.MuiTypography-h1 {
+	font-size: 3rem !important;
+	margin-right: calc(2 * var(--mui-spacing) + 6px) !important;
+}
+
+.MuiButton-text {
+	font-size: 1.25rem !important;
+	font-weight: 700 !important;
+	margin: 0 !important;
+	padding: calc(2 * var(--mui-spacing) + 6px) 10px !important;
+}
+
+.MuiMenu-root {
+	.MuiMenuItem-root {
+		font-size: 1.1rem !important;
+		padding: 10px 16px !important;
+	}
+}

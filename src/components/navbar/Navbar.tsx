@@ -11,7 +11,9 @@ import LightModeIcon from '@mui/icons-material/LightMode';
 import Menu from '@mui/material/Menu';
 import MenuItem from '@mui/material/MenuItem';
 import Toolbar from '@mui/material/Toolbar';
+import Tooltip from '@mui/material/Tooltip';
 import Typography from '@mui/material/Typography';
+import Zoom from '@mui/material/Zoom';
 import { useColorScheme } from '@mui/material/styles';
 import Search from './Search';
 import { gayathri, shrikhand } from '@/fonts';
@@ -146,9 +148,47 @@ export default function Navbar() {
 						onClick={() => toggleMode()}
 					>
 						{mode === 'dark' ? (
-							<DarkModeIcon color="info" className="ModeIcon" />
+							<Tooltip
+								describeChild
+								title={
+									<>
+										<p>{'Dark mode active'}</p>
+										<em>{'Switch to light mode'}</em>
+									</>
+								}
+								TransitionComponent={Zoom}
+								slotProps={{
+									tooltip: {
+										sx: {
+											bgcolor: 'info.dark',
+											color: 'info.light',
+										}
+									}
+								}}
+							>
+								<DarkModeIcon color="info" className="ModeIcon" />
+							</Tooltip>
 						) : (
-							<LightModeIcon color="secondary" className="ModeIcon" />
+							<Tooltip
+								describeChild
+								title={
+									<>
+										<p>{'Light mode active'}</p>
+										<em>{'Switch to dark mode'}</em>
+									</>
+								}
+								TransitionComponent={Zoom}
+								slotProps={{
+									tooltip: {
+										sx: {
+											bgcolor: 'secondary.light',
+											color: 'secondary.dark',
+										}
+									}
+								}}
+							>
+								<LightModeIcon color="secondary" className="ModeIcon" />
+							</Tooltip>
 						)}
 					</IconButton>
 				</Toolbar>

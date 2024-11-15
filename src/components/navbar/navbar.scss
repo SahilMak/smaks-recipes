@@ -51,11 +51,6 @@
 		.MenuItem {
 			font-size: 1.1em;
 			padding: 14px 16px 10px;
-	
-			&:hover {
-				background-color: var(--mui-palette-secondary-main);
-				color: var(--mui-palette-secondary-contrastText);
-			}
 		}
 	}
 }

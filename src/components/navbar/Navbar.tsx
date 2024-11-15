@@ -127,6 +127,12 @@ export default function Navbar() {
 								key={obj.text}
 								divider
 								onClick={() => router.push(obj.link)}
+								sx={{
+									'&:hover': {
+										bgcolor: mode === 'light' ? 'secondary.light' : 'info.dark',
+										color: mode === 'light' ? 'secondary.dark' : 'info.light',
+									}
+								}}
 							>
 								{ obj.text }
 							</MenuItem>

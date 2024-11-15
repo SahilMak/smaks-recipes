@@ -108,11 +108,17 @@ export default function Navbar() {
 					{pages.map((page) => (
 						<Button
 							className="button"
-							key={page.text}
 							color="inherit"
+							key={page.text}
 							onClick={handleOpen}
 							variant="text"
-							sx={{ my: 2}}
+							sx={{
+								my: 2,
+								'&:hover': {
+									bgcolor: 'primary.dark',
+									color: mode === 'light' ? 'background.default' : 'inherit',
+								}
+							}}
 						>
 							{ page.text }
 						</Button>

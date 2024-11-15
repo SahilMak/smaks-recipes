@@ -78,9 +78,17 @@ export default function Navbar() {
     return null;
   }
 	return (
-		<AppBar position="sticky">
-			<Container>
-				<Toolbar disableGutters>
+		<AppBar
+			className="appBar"
+			position="sticky"
+		>
+			<Container
+				className="container"
+			>
+				<Toolbar
+					className="toolbar"
+					disableGutters
+				>
 					<Typography
 						className={shrikhand.variable}
 						color="primary"
@@ -97,6 +105,7 @@ export default function Navbar() {
 					>
 					{pages.map((page) => (
 						<Button
+							className="button"
 							key={page.text}
 							color="inherit"
 							onClick={handleOpen}
@@ -114,6 +123,7 @@ export default function Navbar() {
 						>
 						{(openMenu === 'MEALS' ? meals : cuisine).map((obj: any) => (
 							<MenuItem
+								className="MenuItem"
 								key={obj.text}
 								divider
 								onClick={() => router.push(obj.link)}

@@ -1,33 +1,43 @@
-.MuiAppBar-positionSticky {
+.appBar {
+	background-color: var(--mui-palette-background-default) !important;
 	background-image: none !important;
-	min-height: 6vh !important;
+	min-height: 6vh;
 
-	.MuiContainer-root {
-		min-height: inherit !important;
+	.container {
+		min-height: inherit;
 
-		.MuiToolbar-root {
-			min-height: inherit !important;
+		.toolbar {
+			min-height: inherit;
 
 			.MuiTypography-h1 {
-				font-size: 3em !important;
+				font-size: 2.8em !important;
 				margin-right: calc(2 * var(--mui-spacing) + 6px) !important;
 			}
 
 			.MuiBox-root {
 				min-height: inherit !important;
 
-				.MuiButton-text {
-					border-radius: 0 !important;
-					display: block !important;
-					font-size: 1.5em !important;
-					font-weight: 700 !important;
-					margin: 0 !important;
-					padding: calc(2 * var(--mui-spacing) + 6px) 10px !important;
-					width: 7rem !important;
+				.button {
+					border-radius: 0;
+					display: block;
+					font-size: 1.4em;
+					font-weight: 700;
+					margin: 0;
+					padding: calc(2 * var(--mui-spacing) + 8px) 10px calc(2 * var(--mui-spacing) + 4px);
+					width: 6rem;
 			
 					&:hover {
-						background-color: var(--mui-palette-primary-dark) !important;
+						background-color: var(--mui-palette-primary-dark);
 					}
+				}
+			}
+
+			.IconButton {
+				margin-left: calc(2 * var(--mui-spacing) + 6px);
+
+				.ModeIcon {
+					height: 1.4em;
+					width: 1.4em;
 				}
 			}
 		}
@@ -35,13 +45,17 @@
 }
 
 .MuiMenu-root {
-	.MuiMenuItem-root {
-		font-size: 1.1em !important;
-		padding: 12px 16px !important;
+	.MuiMenu-paper {
+		background-image: none;
 
-		&:hover {
-			background-color: var(--mui-palette-secondary-main);
-			color: var(--mui-palette-secondary-contrastText);
+		.MenuItem {
+			font-size: 1.1em;
+			padding: 14px 16px 10px;
+	
+			&:hover {
+				background-color: var(--mui-palette-secondary-main);
+				color: var(--mui-palette-secondary-contrastText);
+			}
 		}
 	}
 }

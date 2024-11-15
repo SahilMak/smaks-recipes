@@ -5,14 +5,16 @@ import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
 import Container from '@mui/material/Container';
+import DarkModeIcon from '@mui/icons-material/DarkMode';
 import IconButton from '@mui/material/IconButton';
-import InputBase from '@mui/material/InputBase';
+import LightModeIcon from '@mui/icons-material/LightMode';
 import Menu from '@mui/material/Menu';
 import MenuItem from '@mui/material/MenuItem';
-import SearchIcon from '@mui/icons-material/Search';
 import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
-import { shrikhand } from '@/fonts';
+import { useColorScheme } from '@mui/material/styles';
+import Search from './Search';
+import { gayathri, shrikhand } from '@/fonts';
 import './navbar.scss';
 
 const pages = [
@@ -44,25 +46,37 @@ const cuisine = [
 	{text: 'View all', link: '/cuisine'}
 ];
 
-export default function Navbar(props: any) {
+export default function Navbar() {
+	const { mode, setMode } = useColorScheme();
   const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null);
 	const [openMenu, setOpenMenu] = useState('');
 	const router = useRouter();
   const open = Boolean(anchorEl);
   const handleOpen = (event: React.MouseEvent<HTMLButtonElement>) => {
-			const tabText: string = event.currentTarget.innerText;
-			if (tabText === 'HOME' || tabText === 'ABOUT') {
-				const obj = pages.find((page) => page.text === tabText);
-				router.push(obj!.link);
-			} else {
-				setOpenMenu(tabText);
-				setAnchorEl(event.currentTarget);
-			}
-  };
-	const handleClose = () => {
+		const tabText: string = event.currentTarget.innerText;
+		if (tabText === 'HOME' || tabText === 'ABOUT') {
+			const obj = pages.find((page) => page.text === tabText);
+			router.push(obj!.link);
+		} else {
+			setOpenMenu(tabText);
+			event.stopPropagation();
+			setAnchorEl(event.currentTarget);
+		}
+};
+	const handleClose = (event: React.MouseEvent<HTMLButtonElement>) => {
+		event.stopPropagation();
 		setAnchorEl(null);
 	};
+	const toggleMode = React.useCallback(() => {
+    if (mode) {
+      const newMode = (mode === 'dark') ? 'light' : 'dark';
+      setMode(newMode);
+    }
+  }, [mode, setMode]);
 
+	if (!mode) {
+    return null;
+  }
 	return (
 		<AppBar position="sticky">
 			<Container>
@@ -78,8 +92,8 @@ export default function Navbar(props: any) {
 						Smak&apos;s Recipes
 					</Typography>
 					<Box
-						className={props.font.variable}
-						sx={{ display: { xs: 'none', sm: 'flex' }, flexGrow: 1, mr: 2 }}
+						className={gayathri.variable}
+						sx={{ display: { xs: 'none', sm: 'flex' }, mr: 2 }}
 					>
 					{pages.map((page) => (
 						<Button
@@ -94,6 +108,7 @@ export default function Navbar(props: any) {
 					))}
 						<Menu
 							anchorEl={anchorEl}
+							disableScrollLock={true}
 							open={open}
 							onClose={handleClose}
 						>
@@ -102,18 +117,24 @@ export default function Navbar(props: any) {
 								key={obj.text}
 								divider
 								onClick={() => router.push(obj.link)}
-								sx={{
-									':hover': {
-										bgcolor: 'secondary.main',
-										color: 'secondary.contrastText'
-									}
-								}}
 							>
 								{ obj.text }
 							</MenuItem>
 						))}
 						</Menu>
 					</Box>
+					<Search />
+					<IconButton
+						className="IconButton"
+						aria-label="mode-toggle"
+						onClick={() => toggleMode()}
+					>
+						{mode === 'dark' ? (
+							<DarkModeIcon color="info" className="ModeIcon" />
+						) : (
+							<LightModeIcon color="secondary" className="ModeIcon" />
+						)}
+					</IconButton>
 				</Toolbar>
 			</Container>
 		</AppBar>

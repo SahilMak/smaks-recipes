@@ -1,10 +1,9 @@
 import type { Metadata } from 'next'
 import { gayathri } from '@/fonts';
 import { AppRouterCacheProvider } from '@mui/material-nextjs/v14-appRouter';
-import CssBaseline from '@mui/material/CssBaseline';
-import { ThemeProvider } from '@mui/material/styles';
+import InitColorSchemeScript from '@mui/material/InitColorSchemeScript';
+import AppThemeContext from '../context/AppThemeContext';
 import Navbar from '@/components/navbar/Navbar';
-import theme from '../theme';
 import './globals.scss'
 
 export const metadata: Metadata = {
@@ -14,18 +13,18 @@ export const metadata: Metadata = {
 
 export default function RootLayout({
   children,
-}: {
+}: Readonly<{
   children: React.ReactNode
-}) {
+}>) {
   return (
     <html lang="en">
       <body className={gayathri.variable}>
-        <AppRouterCacheProvider>
-          <ThemeProvider theme={theme}>
-            <CssBaseline enableColorScheme />
-            <Navbar font={gayathri} />
+        <AppRouterCacheProvider options={{enableCssLayer: false}}>
+          <AppThemeContext>
+            <InitColorSchemeScript attribute="class" />
+            <Navbar />
             {children}
-          </ThemeProvider>
+          </AppThemeContext>
         </AppRouterCacheProvider>
       </body>
     </html>

@@ -1,0 +1,33 @@
+#search {
+	align-items: center;
+	background-color: var(--mui-palette-background-paper);
+	border: 2px solid var(--mui-palette-text-primary);
+	border-radius: 50px;
+	display: flex;
+	flex-direction: row;
+	flex-wrap: nowrap;
+	justify-content: space-between;
+  position: relative;
+
+	.MuiInputBase-root {
+		margin-left: 1rem;
+		width: 100%;
+
+		.MuiInputBase-input {
+			padding: 6px 0 3px;
+
+			&::placeholder {
+				color: var(--mui-palette-text-primary);
+				opacity: 1;
+			}
+		}
+	}
+
+	#search-icon-wrapper {
+		align-items: center;
+		display: flex;
+		height: 100%;
+		justify-content: center;
+		pointer-events: none;
+	}
+}

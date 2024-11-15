@@ -15,7 +15,8 @@ const theme: Theme = responsiveFontSizes(
 					},
 					secondary: {
 						main: '#DCB733',
-						contrastText: '#231B00',
+						light: '#FEE086',
+						dark: '#564500',
 					},
 					error: {
 						main: '#DC6333',
@@ -25,6 +26,8 @@ const theme: Theme = responsiveFontSizes(
 					},
 					info: {
 						main: '#9333DC',
+						light: '#F1DAFF',
+						dark: '#573A70',
 					},
 					success: {
 						main: '#7CDC33',
@@ -45,8 +48,9 @@ const theme: Theme = responsiveFontSizes(
 						dark: '#006874',
 					},
 					secondary: {
-						main: '#564500',
-						contrastText: '#FEE086',
+						main: '#DCB733',
+						light: '#FEE086',
+						dark: '#564500',
 					},
 					error: {
 						main: '#DC6333',
@@ -56,6 +60,8 @@ const theme: Theme = responsiveFontSizes(
 					},
 					info: {
 						main: '#9333DC',
+						light: '#F1DAFF',
+						dark: '#573A70',
 					},
 					success: {
 						main: '#7CDC33',

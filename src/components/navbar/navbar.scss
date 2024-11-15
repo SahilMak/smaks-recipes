@@ -25,10 +25,6 @@
 					margin: 0;
 					padding: calc(2 * var(--mui-spacing) + 8px) 10px calc(2 * var(--mui-spacing) + 4px);
 					width: 6rem;
-			
-					&:hover {
-						background-color: var(--mui-palette-primary-dark);
-					}
 				}
 			}
 
@@ -51,11 +47,15 @@
 		.MenuItem {
 			font-size: 1.1em;
 			padding: 14px 16px 10px;
-	
-			&:hover {
-				background-color: var(--mui-palette-secondary-main);
-				color: var(--mui-palette-secondary-contrastText);
-			}
 		}
 	}
+}
+
+.tooltip-top {
+	font-size: 0.8rem;
+	padding-top: 4px;
+}
+.tooltip-bottom {
+	font-size: 0.8rem;
+	padding-bottom: 4px;
 }

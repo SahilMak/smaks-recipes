@@ -152,8 +152,8 @@ export default function Navbar() {
 								describeChild
 								title={
 									<>
-										<p>{'Dark mode active'}</p>
-										<em>{'Switch to light mode'}</em>
+										<p className="tooltip-top">{'Dark mode active'}</p>
+										<em className="tooltip-bottom">{'Switch to light mode'}</em>
 									</>
 								}
 								TransitionComponent={Zoom}
@@ -173,8 +173,8 @@ export default function Navbar() {
 								describeChild
 								title={
 									<>
-										<p>{'Light mode active'}</p>
-										<em>{'Switch to dark mode'}</em>
+										<p className="tooltip-top">{'Light mode active'}</p>
+										<em className="tooltip-bottom">{'Switch to dark mode'}</em>
 									</>
 								}
 								TransitionComponent={Zoom}

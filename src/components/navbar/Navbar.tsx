@@ -50,11 +50,11 @@ const cuisine = [
 
 export default function Navbar() {
 	const { mode, setMode } = useColorScheme();
-  const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null);
+  	const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null);
 	const [openMenu, setOpenMenu] = useState('');
 	const router = useRouter();
-  const open = Boolean(anchorEl);
-  const handleOpen = (event: React.MouseEvent<HTMLButtonElement>) => {
+  	const open = Boolean(anchorEl);
+  	const handleOpen = (event: React.MouseEvent<HTMLButtonElement>) => {
 		const tabText: string = event.currentTarget.innerText;
 		if (tabText === 'HOME' || tabText === 'ABOUT') {
 			const obj = pages.find((page) => page.text === tabText);
@@ -64,21 +64,21 @@ export default function Navbar() {
 			event.stopPropagation();
 			setAnchorEl(event.currentTarget);
 		}
-};
+	};
 	const handleClose = (event: React.MouseEvent<HTMLButtonElement>) => {
 		event.stopPropagation();
 		setAnchorEl(null);
 	};
 	const toggleMode = React.useCallback(() => {
-    if (mode) {
-      const newMode = (mode === 'dark') ? 'light' : 'dark';
-      setMode(newMode);
-    }
-  }, [mode, setMode]);
+		if (mode) {
+			const newMode = (mode === 'dark') ? 'light' : 'dark';
+			setMode(newMode);
+		}
+	}, [mode, setMode]);
 
 	if (!mode) {
-    return null;
-  }
+		return null;
+	}
 	return (
 		<AppBar
 			className="appBar"

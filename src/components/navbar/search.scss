@@ -36,5 +36,9 @@
 		height: 100%;
 		justify-content: center;
 		pointer-events: none;
+
+		.MuiIconButton-root {
+			padding: 1vh;
+		}
 	}
 }

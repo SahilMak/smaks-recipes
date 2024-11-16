@@ -1,7 +1,10 @@
+$height: 8vh;
+
 .appBar {
 	background-color: var(--mui-palette-background-default) !important;
 	background-image: none !important;
-	min-height: 6vh;
+	justify-content: center;
+	height: $height;
 
 	.container {
 		min-height: inherit;
@@ -34,8 +37,9 @@
 					display: block;
 					font-size: 1.4em;
 					font-weight: 700;
+					height: $height;
 					margin: 0;
-					padding: calc(2 * var(--mui-spacing) + 8px) 10px calc(2 * var(--mui-spacing) + 4px);
+					padding: 0.5vh 10px 0;
 					width: 6rem;
 
 					@media (max-width: 1200px) {
@@ -47,7 +51,7 @@
 						width: 4rem;
 					}
 					@media (max-width: 800px) {
-						padding: calc(2 * var(--mui-spacing) + 6px) 8px calc(2 * var(--mui-spacing) + 2px);
+						padding: 0.5vh 8px 0;
 					}
 				}
 
@@ -58,7 +62,7 @@
 
 			.IconButton {
 				margin-left: calc(2 * var(--mui-spacing) + 6px);
-				padding: 0 8px;
+				padding: 4px;
 
 				.ModeIcon {
 					height: 1.4em;
@@ -99,10 +103,24 @@
 }
 
 .tooltip-top {
-	font-size: 0.8rem;
+	font-size: 1rem;
 	padding-top: 4px;
+
+	@media (max-width: 1200px) {
+		font-size: 0.8rem;
+	}
+	@media (max-width: 1000px) {
+		font-size: 0.6rem;
+	}
 }
 .tooltip-bottom {
-	font-size: 0.8rem;
+	font-size: 1rem;
 	padding-bottom: 4px;
+
+	@media (max-width: 1200px) {
+		font-size: 0.8rem;
+	}
+	@media (max-width: 1000px) {
+		font-size: 0.6rem;
+	}
 }

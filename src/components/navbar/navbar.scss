@@ -7,11 +7,23 @@
 		min-height: inherit;
 
 		.toolbar {
+			justify-content: space-around;
 			min-height: inherit;
 
 			.MuiTypography-h1 {
 				font-size: 2.8em !important;
 				margin-right: calc(2 * var(--mui-spacing) + 6px) !important;
+
+				@media (max-width: 1200px) {
+					font-size: 2.2em !important;
+				}
+				@media (max-width: 1000px) {
+					font-size: 1.8em !important;
+				}
+				@media (max-width: 800px) {
+					font-size: 1.6em !important;
+					margin-right: 0 !important;
+				}
 			}
 
 			.MuiBox-root {
@@ -25,15 +37,36 @@
 					margin: 0;
 					padding: calc(2 * var(--mui-spacing) + 8px) 10px calc(2 * var(--mui-spacing) + 4px);
 					width: 6rem;
+
+					@media (max-width: 1200px) {
+						font-size: 1em;
+						width: 5rem;
+					}
+					@media (max-width: 1000px) {
+						font-size: 0.7em;
+						width: 4rem;
+					}
+					@media (max-width: 800px) {
+						padding: calc(2 * var(--mui-spacing) + 6px) 8px calc(2 * var(--mui-spacing) + 2px);
+					}
+				}
+
+				@media (max-width: 800px) {
+					margin-right: 0 !important;
 				}
 			}
 
 			.IconButton {
 				margin-left: calc(2 * var(--mui-spacing) + 6px);
+				padding: 0 8px;
 
 				.ModeIcon {
 					height: 1.4em;
 					width: 1.4em;
+				}
+
+				@media (max-width: 800px) {
+					margin-left: 0;
 				}
 			}
 		}
@@ -43,10 +76,24 @@
 .MuiMenu-root {
 	.MuiMenu-paper {
 		background-image: none;
+		border-radius: 0;
 
-		.MenuItem {
-			font-size: 1.1em;
-			padding: 14px 16px 10px;
+		.MuiMenu-list {
+			padding: 0;
+			
+			.MenuItem {
+				font-size: 1.1em;
+				padding: 14px 16px 10px;
+	
+				@media (max-width: 1200px) {
+					font-size: 0.8em;
+					padding: 12px 14px 10px;
+				}
+				@media (max-width: 1000px) {
+					font-size: 0.7em;
+					line-height: 1;
+				}
+			}
 		}
 	}
 }

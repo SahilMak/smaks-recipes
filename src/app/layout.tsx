@@ -7,26 +7,26 @@ import Navbar from '@/components/navbar/Navbar';
 import './globals.scss'
 
 export const metadata: Metadata = {
-  title: 'Smak\'s Recipes',
-  description: 'Easy recipes for amateur cooks',
+	title: 'Smak\'s Recipes',
+  	description: 'Easy recipes for amateur cooks',
 }
 
 export default function RootLayout({
-  children,
+  	children,
 }: Readonly<{
-  children: React.ReactNode
+  	children: React.ReactNode
 }>) {
-  return (
-    <html lang="en">
-      <body className={gayathri.variable}>
-        <AppRouterCacheProvider options={{enableCssLayer: false}}>
-          <AppThemeContext>
-            <InitColorSchemeScript attribute="class" />
-            <Navbar />
-            {children}
-          </AppThemeContext>
-        </AppRouterCacheProvider>
-      </body>
-    </html>
-  )
+	return (
+		<html lang="en">
+			<body className={gayathri.variable}>
+				<AppRouterCacheProvider options={{enableCssLayer: false}}>
+					<AppThemeContext>
+						<InitColorSchemeScript attribute="class" />
+						<Navbar />
+						{children}
+					</AppThemeContext>
+				</AppRouterCacheProvider>
+			</body>
+		</html>
+	)
 }

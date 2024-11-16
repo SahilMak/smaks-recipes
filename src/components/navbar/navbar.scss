@@ -1,17 +1,32 @@
+$height: 8vh;
+
 .appBar {
 	background-color: var(--mui-palette-background-default) !important;
 	background-image: none !important;
-	min-height: 6vh;
+	justify-content: center;
+	height: $height;
 
 	.container {
 		min-height: inherit;
 
 		.toolbar {
+			justify-content: space-around;
 			min-height: inherit;
 
 			.MuiTypography-h1 {
 				font-size: 2.8em !important;
 				margin-right: calc(2 * var(--mui-spacing) + 6px) !important;
+
+				@media (max-width: 1200px) {
+					font-size: 2.2em !important;
+				}
+				@media (max-width: 1000px) {
+					font-size: 1.8em !important;
+				}
+				@media (max-width: 800px) {
+					font-size: 1.6em !important;
+					margin-right: 0 !important;
+				}
 			}
 
 			.MuiBox-root {
@@ -22,18 +37,40 @@
 					display: block;
 					font-size: 1.4em;
 					font-weight: 700;
+					height: $height;
 					margin: 0;
-					padding: calc(2 * var(--mui-spacing) + 8px) 10px calc(2 * var(--mui-spacing) + 4px);
+					padding: 0.5vh 10px 0;
 					width: 6rem;
+
+					@media (max-width: 1200px) {
+						font-size: 1em;
+						width: 5rem;
+					}
+					@media (max-width: 1000px) {
+						font-size: 0.7em;
+						width: 4rem;
+					}
+					@media (max-width: 800px) {
+						padding: 0.5vh 8px 0;
+					}
+				}
+
+				@media (max-width: 800px) {
+					margin-right: 0 !important;
 				}
 			}
 
 			.IconButton {
 				margin-left: calc(2 * var(--mui-spacing) + 6px);
+				padding: 4px;
 
 				.ModeIcon {
 					height: 1.4em;
 					width: 1.4em;
+				}
+
+				@media (max-width: 800px) {
+					margin-left: 0;
 				}
 			}
 		}
@@ -43,19 +80,47 @@
 .MuiMenu-root {
 	.MuiMenu-paper {
 		background-image: none;
+		border-radius: 0;
 
-		.MenuItem {
-			font-size: 1.1em;
-			padding: 14px 16px 10px;
+		.MuiMenu-list {
+			padding: 0;
+			
+			.MenuItem {
+				font-size: 1.1em;
+				padding: 14px 16px 10px;
+	
+				@media (max-width: 1200px) {
+					font-size: 0.8em;
+					padding: 12px 14px 10px;
+				}
+				@media (max-width: 1000px) {
+					font-size: 0.7em;
+					line-height: 1;
+				}
+			}
 		}
 	}
 }
 
 .tooltip-top {
-	font-size: 0.8rem;
+	font-size: 1rem;
 	padding-top: 4px;
+
+	@media (max-width: 1200px) {
+		font-size: 0.8rem;
+	}
+	@media (max-width: 1000px) {
+		font-size: 0.6rem;
+	}
 }
 .tooltip-bottom {
-	font-size: 0.8rem;
+	font-size: 1rem;
 	padding-bottom: 4px;
+
+	@media (max-width: 1200px) {
+		font-size: 0.8rem;
+	}
+	@media (max-width: 1000px) {
+		font-size: 0.6rem;
+	}
 }

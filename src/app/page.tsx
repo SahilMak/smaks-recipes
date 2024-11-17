@@ -1,5 +1,5 @@
 import * as React from 'react';
-import styles from './page.module.scss'
+import styles from './page.module.scss';
 import BgImage from '@/components/bgImage/BgImage';
 import Stack from '@mui/material/Stack';
 import Typography from '@mui/material/Typography';
@@ -7,7 +7,7 @@ import Typography from '@mui/material/Typography';
 export default function Home() {
   return (
     <main className={styles.main}>
-		<BgImage/>
+		<BgImage page={'home'} />
 		<Stack
 			className={styles.stack}
 			spacing={2}

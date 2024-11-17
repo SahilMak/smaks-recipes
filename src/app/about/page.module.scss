@@ -1,0 +1,13 @@
+.main {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    height: 92vh;
+    justify-content: center;
+    position: static;
+
+    .text {
+        font-size: 4em;
+        margin-bottom: 20vh;
+    }
+}

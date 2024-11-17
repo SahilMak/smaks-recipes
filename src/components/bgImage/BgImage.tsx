@@ -15,6 +15,7 @@ export default function BgImage(props: Readonly<{ page: 'home' | 'about' }>) {
 			style={{
 				objectFit: 'fill',
 			}}
+			priority
 		/>
     )
 }

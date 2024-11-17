@@ -1,3 +1,5 @@
+@import '../../lib/breakpoints.scss';
+
 #search {
 	align-items: center;
 	background-color: var(--mui-palette-background-paper);
@@ -22,7 +24,7 @@
 			}
 		}
 
-		@media (max-width: 1200px) {
+		@media (max-width: $desktop-large) {
 			font-size: 0.8em;
 		}
 	}

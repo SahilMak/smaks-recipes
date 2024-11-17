@@ -1,3 +1,5 @@
+@import '../../lib/breakpoints.scss';
+
 $height: 8vh;
 
 .appBar {
@@ -18,14 +20,14 @@ $height: 8vh;
 				cursor: pointer;
 				font-size: 3em !important;
 
-				@media (max-width: 1200px) {
+				@media (max-width: $desktop-large) {
 					font-size: 2.4em !important;
 				}
-				@media (max-width: 1000px) {
+				@media (max-width: $desktop-medium) {
 					font-size: 2em !important;
 					margin-right: 0 !important;
 				}
-				@media (max-width: 800px) {
+				@media (max-width: $desktop-small) {
 					font-size: 1.8em !important;
 				}
 			}
@@ -33,6 +35,10 @@ $height: 8vh;
 			.MuiBox-root {
 				margin-right: 0 !important;
 				min-height: inherit !important;
+
+				@media (max-width: $desktop-small) {
+					margin-right: 0 !important;
+				}
 
 				.button {
 					border-radius: 0;
@@ -42,23 +48,19 @@ $height: 8vh;
 					height: $height;
 					margin: 0;
 					padding: 0.5vh 10px 0;
-					width: 6.5rem;
+					width: 7rem;
 
-					@media (max-width: 1200px) {
+					@media (max-width: $desktop-large) {
 						font-size: 1.2em;
-						width: 5.5rem;
+						width: 6rem;
 					}
-					@media (max-width: 1000px) {
+					@media (max-width: $desktop-medium) {
 						font-size: 1em;
-						width: 4.5rem;
+						width: 5rem;
 					}
-					@media (max-width: 800px) {
+					@media (max-width: $desktop-small) {
 						padding: 0.5vh 8px 0;
 					}
-				}
-
-				@media (max-width: 800px) {
-					margin-right: 0 !important;
 				}
 			}
 
@@ -70,7 +72,7 @@ $height: 8vh;
 					width: 1.4em;
 				}
 
-				@media (max-width: 800px) {
+				@media (max-width: $desktop-small) {
 					margin-left: 0;
 				}
 			}
@@ -90,11 +92,11 @@ $height: 8vh;
 				font-size: 1.1em;
 				padding: 14px 16px 10px;
 	
-				@media (max-width: 1200px) {
+				@media (max-width: $desktop-large) {
 					font-size: 0.8em;
 					padding: 12px 14px 10px;
 				}
-				@media (max-width: 1000px) {
+				@media (max-width: $desktop-medium) {
 					font-size: 0.7em;
 					line-height: 1;
 				}
@@ -107,10 +109,10 @@ $height: 8vh;
 	font-size: 1rem;
 	padding-top: 4px;
 
-	@media (max-width: 1200px) {
+	@media (max-width: $desktop-large) {
 		font-size: 0.8rem;
 	}
-	@media (max-width: 1000px) {
+	@media (max-width: $desktop-medium) {
 		font-size: 0.6rem;
 	}
 }
@@ -118,10 +120,10 @@ $height: 8vh;
 	font-size: 1rem;
 	padding-bottom: 4px;
 
-	@media (max-width: 1200px) {
+	@media (max-width: $desktop-large) {
 		font-size: 0.8rem;
 	}
-	@media (max-width: 1000px) {
+	@media (max-width: $desktop-medium) {
 		font-size: 0.6rem;
 	}
 }

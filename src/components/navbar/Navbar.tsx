@@ -17,7 +17,7 @@ import Zoom from '@mui/material/Zoom';
 import { useColorScheme } from '@mui/material/styles';
 import Search from './Search';
 import { cuisine, meals, pages } from './menuLinks';
-import { gayathri, shrikhand } from '@/fonts';
+import { gayathri, shrikhand } from '@/lib/fonts';
 import './navbar.scss';
 
 export default function Navbar() {

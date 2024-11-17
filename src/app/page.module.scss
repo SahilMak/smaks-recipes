@@ -1,3 +1,5 @@
+@import '../lib/breakpoints.scss';
+
 .main {
   	align-items: center;
   	display: flex;
@@ -16,11 +18,26 @@
 			font-size: 5em;
 			font-weight: bold;
 			text-align: center;
+
+			@media (max-width: $desktop-large) {
+				font-size: 4.5em;
+			}
+			@media (max-width: $desktop-medium) {
+				font-size: 4em;
+			}
 		}
 
 		.typographyBottom {
+			font-size: 4em;
 			font-style: italic;
 			text-align: center;
+
+			@media (max-width: $desktop-large) {
+				font-size: 3.5em;
+			}
+			@media (max-width: $desktop-medium) {
+				font-size: 3em;
+			}
 		}
 	}
 }

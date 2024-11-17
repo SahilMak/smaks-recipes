@@ -1,8 +1,26 @@
 .main {
-  align-items: center;
-  display: flex;
-  flex-direction: column;
-  height: 92vh;
-  justify-content: center;
-  position: static;
+  	align-items: center;
+  	display: flex;
+  	flex-direction: column;
+  	height: 92vh;
+  	justify-content: center;
+  	position: static;
+
+	.stack {
+		align-items: center;
+		justify-content: space-around;
+		margin-bottom: 25vh;
+		margin-left: 25vw;
+
+		.typographyTop {
+			font-size: 5em;
+			font-weight: bold;
+			text-align: center;
+		}
+
+		.typographyBottom {
+			font-style: italic;
+			text-align: center;
+		}
+	}
 }

@@ -67,6 +67,7 @@ export default function Navbar() {
 						className={shrikhand.variable}
 						color="primary"
 						noWrap
+						onClick={() => router.push('/')}
 						component="div"
 						variant="h1"
 						sx={{ display: { xs: 'none', sm: 'flex' }, mr: 1 }}

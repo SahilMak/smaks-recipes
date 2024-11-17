@@ -1,0 +1,14 @@
+.main {
+    align-items: center;
+    background-color: var(--mui-palette-background-paper);
+    display: flex;
+    flex-direction: column;
+    height: 92vh;
+    justify-content: center;
+    position: static;
+
+    .text {
+        font-size: 4em;
+        margin-bottom: 10vh;
+    }
+}

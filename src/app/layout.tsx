@@ -1,5 +1,5 @@
 import type { Metadata } from 'next'
-import { gayathri } from '@/fonts';
+import { gayathri } from '@/lib/fonts';
 import { AppRouterCacheProvider } from '@mui/material-nextjs/v14-appRouter';
 import InitColorSchemeScript from '@mui/material/InitColorSchemeScript';
 import AppThemeContext from '../context/AppThemeContext';

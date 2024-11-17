@@ -17,7 +17,7 @@ import Zoom from '@mui/material/Zoom';
 import { useColorScheme } from '@mui/material/styles';
 import Search from './Search';
 import { cuisine, meals, pages } from './menuLinks';
-import { gayathri, shrikhand } from '@/fonts';
+import { gayathri, shrikhand } from '@/lib/fonts';
 import './navbar.scss';
 
 export default function Navbar() {
@@ -28,7 +28,7 @@ export default function Navbar() {
   	const open = Boolean(anchorEl);
   	const handleOpen = (event: React.MouseEvent<HTMLButtonElement>) => {
 		const tabText: string = event.currentTarget.innerText;
-		if (tabText === 'HOME' || tabText === 'ABOUT') {
+		if (tabText === 'RECIPES' || tabText === 'ABOUT') {
 			const obj = pages.find((page) => page.text === tabText);
 			router.push(obj!.link);
 		} else {

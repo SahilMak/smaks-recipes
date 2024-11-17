@@ -3,7 +3,7 @@ import { createContext, useContext, useMemo } from "react";
 import CssBaseline from '@mui/material/CssBaseline';
 import { ThemeProvider } from '@mui/material/styles';
 import type {} from '@mui/material/themeCssVarsAugmentation';
-import theme from '../theme';
+import theme from '../lib/theme';
 
 const AppThemeContext = createContext(null);
 

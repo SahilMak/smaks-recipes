@@ -38,6 +38,10 @@
 
 		.MuiIconButton-root {
 			padding: 1vh;
+
+			@media (max-width: $mobile-large) {
+				padding: 4px;
+			}
 		}
 	}
 }

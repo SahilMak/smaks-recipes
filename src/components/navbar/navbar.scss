@@ -1,12 +1,19 @@
 @import '../../lib/breakpoints.scss';
-
-$height: 8vh;
+@import '../../lib/variables.scss';
 
 .appBar {
 	background-color: var(--mui-palette-background-default) !important;
 	background-image: none !important;
 	justify-content: center;
-	height: $height;
+	height: $navbar-height;
+
+	@media (max-width: $mobile-large) and (orientation: landscape) {
+		height: calc(2 * $navbar-height);
+	}
+
+	@media (max-width: $mobile-large) and (orientation: portrait) {
+		height: calc(2vh + $navbar-height);
+	}
 
 	.container {
 		min-height: inherit;
@@ -15,6 +22,10 @@ $height: 8vh;
 		.toolbar {
 			justify-content: space-evenly;
 			min-height: inherit;
+
+			@media (max-width: $mobile-large) {
+				display: none;
+			}
 
 			.MuiTypography-h1 {
 				cursor: pointer;
@@ -45,7 +56,7 @@ $height: 8vh;
 					display: block;
 					font-size: 1.4em;
 					font-weight: 700;
-					height: $height;
+					height: $navbar-height;
 					margin: 0;
 					padding: 0.5vh 10px 0;
 					width: 7rem;
@@ -64,16 +75,53 @@ $height: 8vh;
 				}
 			}
 
-			.IconButton {
+			.iconButton {
 				padding: 4px;
-
-				.ModeIcon {
-					height: 1.4em;
-					width: 1.4em;
-				}
 
 				@media (max-width: $desktop-small) {
 					margin-left: 0;
+				}
+
+				.modeIcon {
+					height: 1.4em;
+					width: 1.4em;
+				}
+			}
+		}
+
+		.stack {
+			display: none;
+			justify-content: space-around;
+			min-height: inherit;
+
+			@media (max-width: $mobile-large) {
+				display: flex;
+			}
+
+			.MuiTypography-h1 {
+				font-size: 1.8em;
+				justify-content: center;
+				margin-right: 0 !important;
+
+				@media (orientation: landscape) {
+					font-size: 1.6em;
+				}
+			}
+
+			.box {
+				align-items: center !important;
+				justify-content: space-between !important;
+				margin-right: 0 !important;
+				min-height: inherit !important;
+
+				.iconButton {
+					margin-left: 0;
+					padding: 4px;
+	
+					.modeIcon {
+						height: 1.4em;
+						width: 1.4em;
+					}
 				}
 			}
 		}

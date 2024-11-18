@@ -4,4 +4,8 @@ img {
     .dark & {
         filter: brightness(0.5);
     }
+
+    @media (orientation: portrait) {
+        display: none;
+    }
 }

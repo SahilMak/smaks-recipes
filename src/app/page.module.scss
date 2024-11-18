@@ -1,12 +1,17 @@
 @import '../lib/breakpoints.scss';
+@import '../lib/variables.scss';
 
 .main {
   	align-items: center;
   	display: flex;
   	flex-direction: column;
-  	height: 92vh;
+  	height: calc(100vh - $navbar-height);
   	justify-content: center;
   	position: static;
+
+	@media (max-width: $mobile-large) and (orientation: landscape) {
+		height: calc(100vh - (2 * $navbar-height));
+	}
 
 	.stack {
 		align-items: center;

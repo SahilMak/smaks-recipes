@@ -1,52 +1,35 @@
 @import '../lib/breakpoints.scss';
 @import '../lib/variables.scss';
 
-.main {
-  	align-items: center;
-  	display: flex;
-  	flex-direction: column;
-  	height: calc(100vh - $navbar-height);
-  	justify-content: center;
-  	position: static;
+.stack {
+	align-items: center;
+	justify-content: space-around;
+	margin-bottom: 25vh;
+	margin-left: 25vw;
 
-	@media (max-width: $mobile-large) and (orientation: landscape) {
-		height: calc(100vh - (2 * $navbar-height));
-	}
+	.typographyTop {
+		font-size: 5em;
+		font-weight: bold;
+		text-align: center;
 
-	@media (orientation: portrait) {
-		background-color: var(--mui-palette-background-paper);
-	}
-
-	.stack {
-		align-items: center;
-		justify-content: space-around;
-		margin-bottom: 25vh;
-		margin-left: 25vw;
-
-		.typographyTop {
-			font-size: 5em;
-			font-weight: bold;
-			text-align: center;
-
-			@media (max-width: $desktop-large) {
-				font-size: 4.5em;
-			}
-			@media (max-width: $desktop-medium) {
-				font-size: 4em;
-			}
+		@media (max-width: $desktop-large) {
+			font-size: 4.5em;
 		}
-
-		.typographyBottom {
+		@media (max-width: $desktop-medium) {
 			font-size: 4em;
-			font-style: italic;
-			text-align: center;
+		}
+	}
 
-			@media (max-width: $desktop-large) {
-				font-size: 3.5em;
-			}
-			@media (max-width: $desktop-medium) {
-				font-size: 3em;
-			}
+	.typographyBottom {
+		font-size: 4em;
+		font-style: italic;
+		text-align: center;
+
+		@media (max-width: $desktop-large) {
+			font-size: 3.5em;
+		}
+		@media (max-width: $desktop-medium) {
+			font-size: 3em;
 		}
 	}
 }

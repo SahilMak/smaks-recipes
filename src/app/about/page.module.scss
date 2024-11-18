@@ -1,20 +1,7 @@
 @import '../../lib/breakpoints.scss';
 @import '../../lib/variables.scss';
 
-.main {
-    align-items: center;
-    display: flex;
-    flex-direction: column;
-    height: calc(100vh - $navbar-height);
-    justify-content: center;
-    position: static;
-
-    @media (max-width: $mobile-large) and (orientation: landscape) {
-		height: calc(100vh - (2 * $navbar-height));
-	}
-
-    .text {
-        font-size: 4em;
-        margin-bottom: 20vh;
-    }
+.text {
+    font-size: 4em;
+    margin-bottom: 20vh;
 }

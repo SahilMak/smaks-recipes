@@ -7,9 +7,14 @@
 	margin-bottom: 25vh;
 	margin-left: 25vw;
 
+	@media (orientation: portrait) {
+		margin-left: 0;
+	}
+
 	.typographyTop {
 		font-size: 5em;
 		font-weight: bold;
+		max-width: 70vw;
 		text-align: center;
 
 		@media (max-width: $desktop-large) {

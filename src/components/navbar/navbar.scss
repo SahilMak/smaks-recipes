@@ -7,11 +7,11 @@
 	justify-content: center;
 	height: $navbar-height;
 
-	@media (max-width: $mobile-large) and (orientation: landscape) {
+	@media ((max-width: $mobile-large) and (orientation: landscape)) or ((max-height: 700px) and (orientation: portrait)) {
 		height: calc(2 * $navbar-height);
 	}
 
-	@media (max-width: $mobile-large) and (orientation: portrait) {
+	@media (max-width: $mobile-large) and (orientation: portrait) and (min-height: 701px) {
 		height: calc(2vh + $navbar-height);
 	}
 
@@ -119,8 +119,8 @@
 					padding: 4px;
 	
 					.modeIcon {
-						height: 1.4em;
-						width: 1.4em;
+						height: 1.5em;
+						width: 1.5em;
 					}
 				}
 			}

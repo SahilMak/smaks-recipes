@@ -182,16 +182,50 @@ export default function Navbar() {
 						open={openDrawer}
 					>
 						<List>
-						{pages.map((page) => {
-							return (
+						{pages.map((page) => (
+							<>
 								<ListItemButton
 									key={page.text}
 									onClick={() => handleDrawerMenu(page)}
+									sx={{
+										'&:hover': {
+											bgcolor: mode === 'light' ? 'secondary.light' : 'info.dark',
+											color: mode === 'light' ? 'secondary.dark' : 'info.light',
+										}
+									}}
 								>
 									<ListItemText primary={page.text} />
+									{openDrawerMenu === page.text && (page.text === 'MEALS' || page.text === 'CUISINE') ? 
+										<ExpandLess sx={{ display: page.text === 'MEALS' || page.text === 'CUISINE' ? 'inline-block' : 'none' }} />
+										:
+										<ExpandMore sx={{ display: page.text === 'MEALS' || page.text === 'CUISINE' ? 'inline-block' : 'none' }} />
+									}
 								</ListItemButton>
-							)
-						})}
+								<Collapse
+									in={openDrawerMenu === page.text}
+									timeout="auto"
+									unmountOnExit
+									sx={{ display: page.text === 'MEALS' || page.text === 'CUISINE' ? 'block' : 'none' }}
+								>
+									<List disablePadding>
+										{(page.text === 'MEALS' ? meals : cuisine).map((obj) => (
+											<ListItemButton
+												key={obj.text}
+												onClick={() => {toggleDrawer(false); router.push(obj.link);}}
+												sx={{
+													'&:hover': {
+														bgcolor: mode === 'light' ? 'secondary.light' : 'info.dark',
+														color: mode === 'light' ? 'secondary.dark' : 'info.light',
+													}
+												}}
+											>
+												<ListItemText primary={obj.text} />
+											</ListItemButton>
+										))}
+									</List>
+								</Collapse>
+							</>
+						))}
 						</List>
 					</SwipeableDrawer>
 				</Stack>

@@ -1,7 +1,11 @@
 img {
-    z-index: -1;
+    top: 10px;
 
     .dark & {
         filter: brightness(0.5);
+    }
+
+    @media (orientation: portrait) {
+        display: none;
     }
 }

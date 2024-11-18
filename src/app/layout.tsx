@@ -23,7 +23,9 @@ export default function RootLayout({
 					<AppThemeContext>
 						<InitColorSchemeScript attribute="class" />
 						<Navbar />
-						{children}
+						<main>
+							{children}
+						</main>
 					</AppThemeContext>
 				</AppRouterCacheProvider>
 			</body>

@@ -4,9 +4,9 @@ import BgImage from '@/components/bgImage/BgImage';
 
 export default function About() {
 	return (
-		<main className={styles.main}>
+		<>
 			<BgImage page={'about'} />
 			<div className={styles.text}>About Me coming soon!</div>
-		</main>
+		</>
 	)
 }

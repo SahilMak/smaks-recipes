@@ -9,7 +9,10 @@ import DarkModeIcon from '@mui/icons-material/DarkMode';
 import IconButton from '@mui/material/IconButton';
 import LightModeIcon from '@mui/icons-material/LightMode';
 import Menu from '@mui/material/Menu';
+import MenuIcon from '@mui/icons-material/Menu';
 import MenuItem from '@mui/material/MenuItem';
+import Stack from '@mui/material/Stack';
+import SwipeableDrawer from '@mui/material/SwipeableDrawer';
 import Toolbar from '@mui/material/Toolbar';
 import Tooltip from '@mui/material/Tooltip';
 import Typography from '@mui/material/Typography';
@@ -59,6 +62,7 @@ export default function Navbar() {
 			<Container
 				className="container"
 			>
+				{/* Desktop */}
 				<Toolbar
 					className="toolbar"
 					disableGutters
@@ -70,13 +74,13 @@ export default function Navbar() {
 						onClick={() => router.push('/')}
 						component="div"
 						variant="h1"
-						sx={{ display: { xs: 'none', sm: 'flex' }, mr: 1 }}
+						sx={{ display: 'flex', mr: 1 }}
 					>
 						Smak&apos;s Recipes
 					</Typography>
 					<Box
 						className={gayathri.variable}
-						sx={{ display: { xs: 'none', sm: 'flex' }, mr: 2 }}
+						sx={{ display: 'flex', mr: 2 }}
 					>
 					{pages.map((page) => (
 						<Button
@@ -122,7 +126,7 @@ export default function Navbar() {
 					</Box>
 					<Search />
 					<IconButton
-						className="IconButton"
+						className="iconButton"
 						aria-label="mode-toggle"
 						onClick={() => toggleMode()}
 					>
@@ -145,7 +149,7 @@ export default function Navbar() {
 									}
 								}}
 							>
-								<DarkModeIcon color="info" className="ModeIcon" />
+								<DarkModeIcon color="info" className="modeIcon" />
 							</Tooltip>
 						) : (
 							<Tooltip
@@ -166,11 +170,81 @@ export default function Navbar() {
 									}
 								}}
 							>
-								<LightModeIcon color="secondary" className="ModeIcon" />
+								<LightModeIcon color="secondary" className="modeIcon" />
 							</Tooltip>
 						)}
 					</IconButton>
 				</Toolbar>
+				{/* Mobile */}
+				<Stack className="stack">
+					<Typography
+						className={shrikhand.variable}
+						color="primary"
+						noWrap
+						onClick={() => router.push('/')}
+						component="div"
+						variant="h1"
+						sx={{ display: 'flex', mr: 1 }}
+					>
+						Smak&apos;s Recipes
+					</Typography>
+					<Box
+						className="box"
+						sx={{ display: 'flex', mr: 2 }}
+					>
+						<MenuIcon />
+						<Search />
+						<IconButton
+							className="iconButton"
+							aria-label="mode-toggle"
+							onClick={() => toggleMode()}
+						>
+							{mode === 'dark' ? (
+								<Tooltip
+									describeChild
+									title={
+										<>
+											<p className="tooltip-top">{'Dark mode active'}</p>
+											<em className="tooltip-bottom">{'Switch to light mode'}</em>
+										</>
+									}
+									TransitionComponent={Zoom}
+									slotProps={{
+										tooltip: {
+											sx: {
+												bgcolor: 'info.dark',
+												color: 'info.light',
+											}
+										}
+									}}
+								>
+									<DarkModeIcon color="info" className="modeIcon" />
+								</Tooltip>
+							) : (
+								<Tooltip
+									describeChild
+									title={
+										<>
+											<p className="tooltip-top">{'Light mode active'}</p>
+											<em className="tooltip-bottom">{'Switch to dark mode'}</em>
+										</>
+									}
+									TransitionComponent={Zoom}
+									slotProps={{
+										tooltip: {
+											sx: {
+												bgcolor: 'secondary.light',
+												color: 'secondary.dark',
+											}
+										}
+									}}
+								>
+									<LightModeIcon color="secondary" className="modeIcon" />
+								</Tooltip>
+							)}
+						</IconButton>
+					</Box>
+				</Stack>
 			</Container>
 		</AppBar>
 	)

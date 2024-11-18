@@ -6,7 +6,7 @@ import Typography from '@mui/material/Typography';
 
 export default function Home() {
   return (
-    <main className={styles.main}>
+	<>
 		<BgImage page={'home'} />
 		<Stack
 			className={styles.stack}
@@ -27,6 +27,6 @@ export default function Home() {
 				Coming soon
 			</Typography>
 		</Stack>
-    </main>
+	</>
   )
 }

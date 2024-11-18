@@ -23,8 +23,19 @@
 			justify-content: space-evenly;
 			min-height: inherit;
 
-			@media (max-width: $mobile-large) {
+			@media (max-width: $mobile-large) and (orientation: landscape) {
+				justify-content: space-between;
+			}
+			@media (max-width: $mobile-large) and (orientation: portrait) {
 				display: none;
+			}
+
+			.menuIconButton {
+				display: none;
+
+				@media (max-width: $mobile-large) and (orientation: landscape) {
+					display: inline-flex;
+				}
 			}
 
 			.MuiTypography-h1 {
@@ -49,6 +60,9 @@
 
 				@media (max-width: $desktop-small) {
 					margin-right: 0 !important;
+				}
+				@media (max-width: $mobile-large) and (orientation: landscape) {
+					display: none;
 				}
 
 				.button {
@@ -94,7 +108,7 @@
 			justify-content: space-around;
 			min-height: inherit;
 
-			@media (max-width: $mobile-large) {
+			@media (max-width: $mobile-large) and (orientation: portrait) {
 				display: flex;
 			}
 
@@ -102,10 +116,6 @@
 				font-size: 1.8em;
 				justify-content: center;
 				margin-right: 0 !important;
-
-				@media (orientation: landscape) {
-					font-size: 1.6em;
-				}
 			}
 
 			.box {

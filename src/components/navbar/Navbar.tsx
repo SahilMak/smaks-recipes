@@ -4,21 +4,24 @@ import { useRouter } from 'next/navigation';
 import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
+import Collapse from '@mui/material/Collapse';
 import Container from '@mui/material/Container';
-import DarkModeIcon from '@mui/icons-material/DarkMode';
+import ExpandLess from '@mui/icons-material/ExpandLess';
+import ExpandMore from '@mui/icons-material/ExpandMore';
 import IconButton from '@mui/material/IconButton';
-import LightModeIcon from '@mui/icons-material/LightMode';
+import List from '@mui/material/List';
+import ListItemButton from '@mui/material/ListItemButton';
+import ListItemText from '@mui/material/ListItemText';
 import Menu from '@mui/material/Menu';
 import MenuIcon from '@mui/icons-material/Menu';
 import MenuItem from '@mui/material/MenuItem';
 import Stack from '@mui/material/Stack';
 import SwipeableDrawer from '@mui/material/SwipeableDrawer';
 import Toolbar from '@mui/material/Toolbar';
-import Tooltip from '@mui/material/Tooltip';
 import Typography from '@mui/material/Typography';
-import Zoom from '@mui/material/Zoom';
 import { useColorScheme } from '@mui/material/styles';
-import Search from './Search';
+import ModeButton from './modeButton/ModeButton';
+import Search from './search/Search';
 import { cuisine, meals, pages } from './menuLinks';
 import { gayathri, shrikhand } from '@/lib/fonts';
 import './navbar.scss';
@@ -26,6 +29,8 @@ import './navbar.scss';
 export default function Navbar() {
 	const { mode, setMode } = useColorScheme();
   	const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null);
+	const [openDrawer, setOpenDrawer] = useState(false);
+	const [openDrawerMenu, setOpenDrawerMenu] = useState('');
 	const [openMenu, setOpenMenu] = useState('');
 	const router = useRouter();
   	const open = Boolean(anchorEl);
@@ -43,6 +48,16 @@ export default function Navbar() {
 	const handleClose = (event: React.MouseEvent<HTMLButtonElement>) => {
 		event.stopPropagation();
 		setAnchorEl(null);
+	};
+	const toggleDrawer = (newOpen: boolean) => () => {
+		setOpenDrawer(newOpen);
+	};
+	const handleDrawerMenu = (list: any) => {
+		if (list.text === 'RECIPES' || list.text === 'ABOUT') {
+			router.push(list!.link);
+		} else {
+			setOpenDrawerMenu((openDrawerMenu === list.text) ? '' : list.text);
+		}
 	};
 	const toggleMode = React.useCallback(() => {
 		if (mode) {
@@ -67,6 +82,13 @@ export default function Navbar() {
 					className="toolbar"
 					disableGutters
 				>
+					<IconButton
+						className="menuIconButton"
+						aria-label="menu-toggle"
+						onClick={toggleDrawer(true)}
+					>
+						<MenuIcon className="menuIcon" />
+					</IconButton>
 					<Typography
 						className={shrikhand.variable}
 						color="primary"
@@ -125,55 +147,7 @@ export default function Navbar() {
 						</Menu>
 					</Box>
 					<Search />
-					<IconButton
-						className="iconButton"
-						aria-label="mode-toggle"
-						onClick={() => toggleMode()}
-					>
-						{mode === 'dark' ? (
-							<Tooltip
-								describeChild
-								title={
-									<>
-										<p className="tooltip-top">{'Dark mode active'}</p>
-										<em className="tooltip-bottom">{'Switch to light mode'}</em>
-									</>
-								}
-								TransitionComponent={Zoom}
-								slotProps={{
-									tooltip: {
-										sx: {
-											bgcolor: 'info.dark',
-											color: 'info.light',
-										}
-									}
-								}}
-							>
-								<DarkModeIcon color="info" className="modeIcon" />
-							</Tooltip>
-						) : (
-							<Tooltip
-								describeChild
-								title={
-									<>
-										<p className="tooltip-top">{'Light mode active'}</p>
-										<em className="tooltip-bottom">{'Switch to dark mode'}</em>
-									</>
-								}
-								TransitionComponent={Zoom}
-								slotProps={{
-									tooltip: {
-										sx: {
-											bgcolor: 'secondary.light',
-											color: 'secondary.dark',
-										}
-									}
-								}}
-							>
-								<LightModeIcon color="secondary" className="modeIcon" />
-							</Tooltip>
-						)}
-					</IconButton>
+					<ModeButton mode={mode} toggleMode={toggleMode} />
 				</Toolbar>
 				{/* Mobile */}
 				<Stack className="stack">
@@ -192,58 +166,34 @@ export default function Navbar() {
 						className="box"
 						sx={{ display: 'flex', mr: 2 }}
 					>
-						<MenuIcon />
-						<Search />
 						<IconButton
 							className="iconButton"
-							aria-label="mode-toggle"
-							onClick={() => toggleMode()}
+							aria-label="menu-toggle"
+							onClick={toggleDrawer(true)}
 						>
-							{mode === 'dark' ? (
-								<Tooltip
-									describeChild
-									title={
-										<>
-											<p className="tooltip-top">{'Dark mode active'}</p>
-											<em className="tooltip-bottom">{'Switch to light mode'}</em>
-										</>
-									}
-									TransitionComponent={Zoom}
-									slotProps={{
-										tooltip: {
-											sx: {
-												bgcolor: 'info.dark',
-												color: 'info.light',
-											}
-										}
-									}}
-								>
-									<DarkModeIcon color="info" className="modeIcon" />
-								</Tooltip>
-							) : (
-								<Tooltip
-									describeChild
-									title={
-										<>
-											<p className="tooltip-top">{'Light mode active'}</p>
-											<em className="tooltip-bottom">{'Switch to dark mode'}</em>
-										</>
-									}
-									TransitionComponent={Zoom}
-									slotProps={{
-										tooltip: {
-											sx: {
-												bgcolor: 'secondary.light',
-												color: 'secondary.dark',
-											}
-										}
-									}}
-								>
-									<LightModeIcon color="secondary" className="modeIcon" />
-								</Tooltip>
-							)}
+							<MenuIcon className="menuIcon" />
 						</IconButton>
+						<Search />
+						<ModeButton mode={mode} toggleMode={toggleMode} />
 					</Box>
+					<SwipeableDrawer
+						onClose={toggleDrawer(false)}
+						onOpen={toggleDrawer(true)}
+						open={openDrawer}
+					>
+						<List>
+						{pages.map((page) => {
+							return (
+								<ListItemButton
+									key={page.text}
+									onClick={() => handleDrawerMenu(page)}
+								>
+									<ListItemText primary={page.text} />
+								</ListItemButton>
+							)
+						})}
+						</List>
+					</SwipeableDrawer>
 				</Stack>
 			</Container>
 		</AppBar>

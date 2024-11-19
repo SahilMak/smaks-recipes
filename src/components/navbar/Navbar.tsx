@@ -1,5 +1,5 @@
 'use client';
-import React, { useState } from 'react';
+import React, { useCallback, useState } from 'react';
 import { useRouter } from 'next/navigation';
 import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
@@ -49,17 +49,17 @@ export default function Navbar() {
 		event.stopPropagation();
 		setAnchorEl(null);
 	};
-	const toggleDrawer = (newOpen: boolean) => () => {
+	const toggleDrawer = (newOpen: boolean) => {
 		setOpenDrawer(newOpen);
 	};
-	const handleDrawerMenu = (list: any) => {
+	const handleDrawerMenu = (list: any) => () => {
 		if (list.text === 'RECIPES' || list.text === 'ABOUT') {
 			router.push(list!.link);
 		} else {
 			setOpenDrawerMenu((openDrawerMenu === list.text) ? '' : list.text);
 		}
 	};
-	const toggleMode = React.useCallback(() => {
+	const toggleMode = useCallback(() => {
 		if (mode) {
 			const newMode = (mode === 'dark') ? 'light' : 'dark';
 			setMode(newMode);
@@ -85,7 +85,7 @@ export default function Navbar() {
 					<IconButton
 						className="menuIconButton"
 						aria-label="menu-toggle"
-						onClick={toggleDrawer(true)}
+						onClick={() => toggleDrawer(true)}
 					>
 						<MenuIcon className="menuIcon" />
 					</IconButton>
@@ -169,7 +169,7 @@ export default function Navbar() {
 						<IconButton
 							className="iconButton"
 							aria-label="menu-toggle"
-							onClick={toggleDrawer(true)}
+							onClick={() => toggleDrawer(true)}
 						>
 							<MenuIcon className="menuIcon" />
 						</IconButton>
@@ -177,8 +177,8 @@ export default function Navbar() {
 						<ModeButton mode={mode} toggleMode={toggleMode} />
 					</Box>
 					<SwipeableDrawer
-						onClose={toggleDrawer(false)}
-						onOpen={toggleDrawer(true)}
+						onClose={() => toggleDrawer(false)}
+						onOpen={() => toggleDrawer(true)}
 						open={openDrawer}
 					>
 						<List>
@@ -187,7 +187,7 @@ export default function Navbar() {
 								<ListItemButton
 									className="drawerMenuItem"
 									key={page.text}
-									onClick={() => handleDrawerMenu(page)}
+									onClick={handleDrawerMenu(page)}
 									sx={{
 										'&:hover': {
 											bgcolor: mode === 'light' ? 'secondary.light' : 'info.dark',
@@ -213,7 +213,10 @@ export default function Navbar() {
 											<ListItemButton
 												className="drawerMenuItem"
 												key={obj.text}
-												onClick={() => {toggleDrawer(false); router.push(obj.link);}}
+												onClick={() => {
+													toggleDrawer(false);
+													router.push(obj.link);
+												}}
 												sx={{
 													'&:hover': {
 														bgcolor: mode === 'light' ? 'secondary.light' : 'info.dark',

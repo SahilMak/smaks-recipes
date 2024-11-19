@@ -82,7 +82,6 @@ export default function Navbar() {
 					className="toolbar"
 					disableGutters
 				>
-					<ModeButton mode={mode} toggleMode={toggleMode} />
 					<Typography
 						className={shrikhand.variable}
 						color="primary"
@@ -141,6 +140,7 @@ export default function Navbar() {
 						</Menu>
 					</Box>
 					<Search />
+					<ModeButton mode={mode} toggleMode={toggleMode} />
 					<IconButton
 						className="menuIconButton"
 						aria-label="menu-toggle"

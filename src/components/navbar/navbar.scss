@@ -18,6 +18,8 @@
 	.container {
 		min-height: inherit;
 		max-width: 1400px;
+		padding-left: calc(2 * var(--mui-spacing));
+		padding-right: calc(2 * var(--mui-spacing));
 
 		.toolbar {
 			justify-content: space-evenly;

@@ -82,13 +82,7 @@ export default function Navbar() {
 					className="toolbar"
 					disableGutters
 				>
-					<IconButton
-						className="menuIconButton"
-						aria-label="menu-toggle"
-						onClick={() => toggleDrawer(true)}
-					>
-						<MenuIcon className="menuIcon" />
-					</IconButton>
+					<ModeButton mode={mode} toggleMode={toggleMode} />
 					<Typography
 						className={shrikhand.variable}
 						color="primary"
@@ -147,7 +141,13 @@ export default function Navbar() {
 						</Menu>
 					</Box>
 					<Search />
-					<ModeButton mode={mode} toggleMode={toggleMode} />
+					<IconButton
+						className="menuIconButton"
+						aria-label="menu-toggle"
+						onClick={() => toggleDrawer(true)}
+					>
+						<MenuIcon className="menuIcon" />
+					</IconButton>
 				</Toolbar>
 				{/* Mobile */}
 				<Stack className="stack">
@@ -198,9 +198,9 @@ export default function Navbar() {
 								>
 									<ListItemText primary={page.text} />
 									{openDrawerMenu === page.text && page.link === '' ? 
-										<ExpandLess sx={{ display: page.link === '' ? 'inline-block' : 'none' }} />
+										<ExpandLess sx={{ display: page.link === '' ? 'inline-block' : 'none', marginBottom: '8px' }} />
 										:
-										<ExpandMore sx={{ display: page.link === '' ? 'inline-block' : 'none' }} />
+										<ExpandMore sx={{ display: page.link === '' ? 'inline-block' : 'none', marginBottom: '8px' }} />
 									}
 								</ListItemButton>
 								<Collapse

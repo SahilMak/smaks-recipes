@@ -6,6 +6,7 @@
 	justify-content: space-around;
 	margin-bottom: 25vh;
 	margin-left: 25vw;
+	margin-top: 10vh;
 	z-index: 1;
 
 	@media (orientation: portrait) {
@@ -13,29 +14,15 @@
 	}
 
 	.typographyTop {
-		font-size: 5em;
+		font-size: 8vh;
 		font-weight: bold;
 		max-width: 70vw;
 		text-align: center;
-
-		@media (max-width: $desktop-large) {
-			font-size: 4.5em;
-		}
-		@media (max-width: $desktop-medium) {
-			font-size: 4em;
-		}
 	}
 
 	.typographyBottom {
-		font-size: 4em;
+		font-size: 6vh;
 		font-style: italic;
 		text-align: center;
-
-		@media (max-width: $desktop-large) {
-			font-size: 3.5em;
-		}
-		@media (max-width: $desktop-medium) {
-			font-size: 3em;
-		}
 	}
 }

@@ -166,6 +166,8 @@ export default function Navbar() {
 						className="box"
 						sx={{ display: 'flex', mr: 2 }}
 					>
+						<ModeButton mode={mode} toggleMode={toggleMode} />
+						<Search />
 						<IconButton
 							className="iconButton"
 							aria-label="menu-toggle"
@@ -173,10 +175,9 @@ export default function Navbar() {
 						>
 							<MenuIcon className="menuIcon" />
 						</IconButton>
-						<Search />
-						<ModeButton mode={mode} toggleMode={toggleMode} />
 					</Box>
 					<SwipeableDrawer
+						anchor="right"
 						onClose={() => toggleDrawer(false)}
 						onOpen={() => toggleDrawer(true)}
 						open={openDrawer}

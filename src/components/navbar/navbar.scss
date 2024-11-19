@@ -163,8 +163,17 @@
 	}
 }
 
-.drawerMenuItem {
-	padding: 10px 16px 6px !important;
+.MuiDrawer-paper {
+	background-image: none !important;
+
+	.drawerMenuItem {
+		padding: 10px 16px 6px !important;
+
+		.MuiListItemText-root > span {
+			font-size: 1.2rem;
+			font-weight: 700;
+		}
+	}
 }
 
 .tooltip-top {

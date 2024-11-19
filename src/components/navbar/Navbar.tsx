@@ -1,5 +1,5 @@
 'use client';
-import React, { useState } from 'react';
+import React, { useCallback, useState } from 'react';
 import { useRouter } from 'next/navigation';
 import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
@@ -49,17 +49,17 @@ export default function Navbar() {
 		event.stopPropagation();
 		setAnchorEl(null);
 	};
-	const toggleDrawer = (newOpen: boolean) => () => {
+	const toggleDrawer = (newOpen: boolean) => {
 		setOpenDrawer(newOpen);
 	};
-	const handleDrawerMenu = (list: any) => {
+	const handleDrawerMenu = (list: any) => () => {
 		if (list.text === 'RECIPES' || list.text === 'ABOUT') {
 			router.push(list!.link);
 		} else {
 			setOpenDrawerMenu((openDrawerMenu === list.text) ? '' : list.text);
 		}
 	};
-	const toggleMode = React.useCallback(() => {
+	const toggleMode = useCallback(() => {
 		if (mode) {
 			const newMode = (mode === 'dark') ? 'light' : 'dark';
 			setMode(newMode);
@@ -85,7 +85,7 @@ export default function Navbar() {
 					<IconButton
 						className="menuIconButton"
 						aria-label="menu-toggle"
-						onClick={toggleDrawer(true)}
+						onClick={() => toggleDrawer(true)}
 					>
 						<MenuIcon className="menuIcon" />
 					</IconButton>
@@ -130,7 +130,7 @@ export default function Navbar() {
 						>
 						{(openMenu === 'MEALS' ? meals : cuisine).map((obj: any) => (
 							<MenuItem
-								className="MenuItem"
+								className="menuItem"
 								key={obj.text}
 								divider
 								onClick={() => router.push(obj.link)}
@@ -166,27 +166,29 @@ export default function Navbar() {
 						className="box"
 						sx={{ display: 'flex', mr: 2 }}
 					>
+						<ModeButton mode={mode} toggleMode={toggleMode} />
+						<Search />
 						<IconButton
 							className="iconButton"
 							aria-label="menu-toggle"
-							onClick={toggleDrawer(true)}
+							onClick={() => toggleDrawer(true)}
 						>
 							<MenuIcon className="menuIcon" />
 						</IconButton>
-						<Search />
-						<ModeButton mode={mode} toggleMode={toggleMode} />
 					</Box>
 					<SwipeableDrawer
-						onClose={toggleDrawer(false)}
-						onOpen={toggleDrawer(true)}
+						anchor="right"
+						onClose={() => toggleDrawer(false)}
+						onOpen={() => toggleDrawer(true)}
 						open={openDrawer}
 					>
 						<List>
 						{pages.map((page) => (
 							<>
 								<ListItemButton
+									className="drawerMenuItem"
 									key={page.text}
-									onClick={() => handleDrawerMenu(page)}
+									onClick={handleDrawerMenu(page)}
 									sx={{
 										'&:hover': {
 											bgcolor: mode === 'light' ? 'secondary.light' : 'info.dark',
@@ -195,23 +197,27 @@ export default function Navbar() {
 									}}
 								>
 									<ListItemText primary={page.text} />
-									{openDrawerMenu === page.text && (page.text === 'MEALS' || page.text === 'CUISINE') ? 
-										<ExpandLess sx={{ display: page.text === 'MEALS' || page.text === 'CUISINE' ? 'inline-block' : 'none' }} />
+									{openDrawerMenu === page.text && page.link === '' ? 
+										<ExpandLess sx={{ display: page.link === '' ? 'inline-block' : 'none' }} />
 										:
-										<ExpandMore sx={{ display: page.text === 'MEALS' || page.text === 'CUISINE' ? 'inline-block' : 'none' }} />
+										<ExpandMore sx={{ display: page.link === '' ? 'inline-block' : 'none' }} />
 									}
 								</ListItemButton>
 								<Collapse
 									in={openDrawerMenu === page.text}
 									timeout="auto"
 									unmountOnExit
-									sx={{ display: page.text === 'MEALS' || page.text === 'CUISINE' ? 'block' : 'none' }}
+									sx={{ display: page.link === '' ? 'block' : 'none' }}
 								>
 									<List disablePadding>
 										{(page.text === 'MEALS' ? meals : cuisine).map((obj) => (
 											<ListItemButton
+												className="drawerMenuItem"
 												key={obj.text}
-												onClick={() => {toggleDrawer(false); router.push(obj.link);}}
+												onClick={() => {
+													toggleDrawer(false);
+													router.push(obj.link);
+												}}
 												sx={{
 													'&:hover': {
 														bgcolor: mode === 'light' ? 'secondary.light' : 'info.dark',

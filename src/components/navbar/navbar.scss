@@ -12,7 +12,7 @@
 	}
 
 	@media (max-width: $mobile-large) and (orientation: portrait) and (min-height: 701px) {
-		height: calc(2vh + $navbar-height);
+		height: calc(3vh + $navbar-height);
 	}
 
 	.container {
@@ -138,6 +138,11 @@
 			}
 		}
 	}
+}
+
+.menuIcon {
+	height: 1.2em !important;
+	width: 1.2em !important;
 }
 
 .MuiMenu-root {

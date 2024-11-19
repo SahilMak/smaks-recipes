@@ -118,7 +118,10 @@ main {
   	justify-content: center;
   	position: static;
 
-	@media (max-width: $mobile-large) and (orientation: landscape) {
+	@media ((max-width: $mobile-large) and (orientation: landscape)) or ((max-height: 700px) and (orientation: portrait)) {
 		height: calc(100vh - (2 * $navbar-height));
+	}
+	@media (max-width: $mobile-large) and (orientation: portrait) and (min-height: 701px) {
+		height: calc(100vh - (3vh + $navbar-height));
 	}
 }

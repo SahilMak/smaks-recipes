@@ -130,7 +130,7 @@ export default function Navbar() {
 						>
 						{(openMenu === 'MEALS' ? meals : cuisine).map((obj: any) => (
 							<MenuItem
-								className="MenuItem"
+								className="menuItem"
 								key={obj.text}
 								divider
 								onClick={() => router.push(obj.link)}
@@ -185,6 +185,7 @@ export default function Navbar() {
 						{pages.map((page) => (
 							<>
 								<ListItemButton
+									className="drawerMenuItem"
 									key={page.text}
 									onClick={() => handleDrawerMenu(page)}
 									sx={{
@@ -195,21 +196,22 @@ export default function Navbar() {
 									}}
 								>
 									<ListItemText primary={page.text} />
-									{openDrawerMenu === page.text && (page.text === 'MEALS' || page.text === 'CUISINE') ? 
-										<ExpandLess sx={{ display: page.text === 'MEALS' || page.text === 'CUISINE' ? 'inline-block' : 'none' }} />
+									{openDrawerMenu === page.text && page.link === '' ? 
+										<ExpandLess sx={{ display: page.link === '' ? 'inline-block' : 'none' }} />
 										:
-										<ExpandMore sx={{ display: page.text === 'MEALS' || page.text === 'CUISINE' ? 'inline-block' : 'none' }} />
+										<ExpandMore sx={{ display: page.link === '' ? 'inline-block' : 'none' }} />
 									}
 								</ListItemButton>
 								<Collapse
 									in={openDrawerMenu === page.text}
 									timeout="auto"
 									unmountOnExit
-									sx={{ display: page.text === 'MEALS' || page.text === 'CUISINE' ? 'block' : 'none' }}
+									sx={{ display: page.link === '' ? 'block' : 'none' }}
 								>
 									<List disablePadding>
 										{(page.text === 'MEALS' ? meals : cuisine).map((obj) => (
 											<ListItemButton
+												className="drawerMenuItem"
 												key={obj.text}
 												onClick={() => {toggleDrawer(false); router.push(obj.link);}}
 												sx={{

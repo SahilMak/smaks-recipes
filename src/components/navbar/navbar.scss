@@ -146,7 +146,7 @@
 		.MuiMenu-list {
 			padding: 0;
 			
-			.MenuItem {
+			.menuItem {
 				font-size: 1.1em;
 				padding: 14px 16px 10px;
 	
@@ -161,6 +161,10 @@
 			}
 		}
 	}
+}
+
+.drawerMenuItem {
+	padding: 10px 16px 6px !important;
 }
 
 .tooltip-top {

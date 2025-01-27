@@ -9,7 +9,7 @@ export default function BgImage(props: Readonly<{ page: 'home' | 'about' }>) {
 			alt="Background image"
 			src={props.page === 'home' ? bg_landscape : bg_landscape2}
 			placeholder="blur"
-			quality={100}
+			quality={75}
 			fill={true}
 			sizes="100vw"
 			style={{

@@ -6,7 +6,7 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "start-dev": "npx serve@latest out",
+    "start-dev": "next build && npx serve@latest out",
     "lint": "next lint"
   },
   "dependencies": {
@@ -16,6 +16,7 @@
     "@mui/icons-material": "^6.1.6",
     "@mui/material": "^6.1.6",
     "@mui/material-nextjs": "^6.1.6",
+    "@reduxjs/toolkit": "^2.5.1",
     "firebase": "^11.0.2",
     "next": "14.0.4",
     "react": "^18",

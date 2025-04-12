@@ -19,11 +19,11 @@ export default function Recipes() {
 			<Grid
 				container
 				className={styles.gridContainer}
-				spacing={4}
+				spacing={{ xs: 3, sm: 3, md: 4 }}
 			>
 			{recipes?.map((recipe: Recipe) => (
 				<Grid
-					size={4}
+					size={{ xs: 6, sm: 6, md: 4}}
 					key={recipe.name}
 				>
 					<Stack

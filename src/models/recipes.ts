@@ -1,3 +1,4 @@
+import { DocumentData } from "firebase/firestore/lite";
 import { Ingredient } from "./ingredients";
 
 export interface Recipe {
@@ -13,9 +14,9 @@ export interface Recipe {
     servings: number;
 }
 
-interface RecipeIngredient {
+export interface RecipeIngredient {
     amount?: number | string;
-    ingredient?: Ingredient;
+    ingredient?: Ingredient | DocumentData;
     items?: RecipeIngredient[];
     name?: string;
     optional?: boolean;

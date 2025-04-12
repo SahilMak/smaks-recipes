@@ -19,11 +19,12 @@ export default async function RootLayout({
   	children: React.ReactNode
 }>) {
 	const recipes = await getAllRecipes();
+	
 	return (
 		<html lang="en">
 			<body className={gayathri.variable}>
 				<AppRouterCacheProvider options={{enableCssLayer: false}}>
-					<StoreProvider recipes={recipes}>
+					<StoreProvider recipes={JSON.parse(JSON.stringify(recipes))}>
 						<AppThemeContext>
 							<InitColorSchemeScript attribute="class" />
 							<Navbar />

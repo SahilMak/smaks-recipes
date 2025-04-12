@@ -4,15 +4,26 @@ import IconButton from '@mui/material/IconButton';
 import LightModeIcon from '@mui/icons-material/LightMode';
 import Tooltip from '@mui/material/Tooltip';
 import Zoom from '@mui/material/Zoom';
+import { useColorScheme } from '@mui/material/styles';
+import { setDarkMode } from '@/lib/actions';
+import { useAppDispatch, useAppSelector } from '@/lib/hooks';
 
-export default function ModeButton(props: Readonly<{ mode: 'dark' | 'light' | 'system', toggleMode: any }>) {
+export default function ModeButton() {
+    const darkMode = useAppSelector((state) => state.darkMode.on);
+    const updateDarkMode = useAppDispatch();
+    const { mode, setMode } = useColorScheme();
+    const toggleTheme = () => {
+        setMode(darkMode ? 'light' : 'dark');
+        updateDarkMode(setDarkMode(!darkMode));
+    };
+
     return (
         <IconButton
             className="iconButton"
             aria-label="mode-toggle"
-            onClick={() => props.toggleMode()}
+            onClick={() => toggleTheme()}
         >
-            {props.mode === 'dark' ? (
+            {darkMode ? (
                 <Tooltip
                     describeChild
                     title={

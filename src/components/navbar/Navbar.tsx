@@ -1,5 +1,5 @@
 'use client';
-import React, { useCallback, useState } from 'react';
+import React, { useState } from 'react';
 import { useRouter } from 'next/navigation';
 import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
@@ -19,19 +19,19 @@ import Stack from '@mui/material/Stack';
 import SwipeableDrawer from '@mui/material/SwipeableDrawer';
 import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
-import { useColorScheme } from '@mui/material/styles';
 import ModeButton from './modeButton/ModeButton';
 import Search from './search/Search';
 import { cuisine, meals, pages } from './menuLinks';
 import { gayathri, shrikhand } from '@/lib/fonts';
+import { useAppSelector } from '@/lib/hooks';
 import './navbar.scss';
 
 export default function Navbar() {
-	const { mode, setMode } = useColorScheme();
   	const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null);
 	const [openDrawer, setOpenDrawer] = useState(false);
 	const [openDrawerMenu, setOpenDrawerMenu] = useState('');
 	const [openMenu, setOpenMenu] = useState('');
+	const darkMode = useAppSelector((state) => state.darkMode.on);
 	const router = useRouter();
   	const open = Boolean(anchorEl);
   	const handleOpen = (event: React.MouseEvent<HTMLButtonElement>) => {
@@ -59,16 +59,7 @@ export default function Navbar() {
 			setOpenDrawerMenu((openDrawerMenu === list.text) ? '' : list.text);
 		}
 	};
-	const toggleMode = useCallback(() => {
-		if (mode) {
-			const newMode = (mode === 'dark') ? 'light' : 'dark';
-			setMode(newMode);
-		}
-	}, [mode, setMode]);
 
-	if (!mode) {
-		return null;
-	}
 	return (
 		<AppBar
 			className="appBar"
@@ -108,7 +99,7 @@ export default function Navbar() {
 								my: 2,
 								'&:hover': {
 									bgcolor: 'primary.dark',
-									color: mode === 'light' ? 'background.default' : 'inherit',
+									color: darkMode ? 'inherit' : 'background.default',
 								}
 							}}
 						>
@@ -129,8 +120,8 @@ export default function Navbar() {
 								onClick={() => router.push(obj.link)}
 								sx={{
 									'&:hover': {
-										bgcolor: mode === 'light' ? 'secondary.light' : 'info.dark',
-										color: mode === 'light' ? 'secondary.dark' : 'info.light',
+										bgcolor: darkMode ? 'info.dark' : 'secondary.light',
+										color: darkMode ? 'info.light' : 'secondary.dark',
 									}
 								}}
 							>
@@ -140,7 +131,7 @@ export default function Navbar() {
 						</Menu>
 					</Box>
 					<Search />
-					<ModeButton mode={mode} toggleMode={toggleMode} />
+					<ModeButton />
 					<IconButton
 						className="menuIconButton"
 						aria-label="menu-toggle"
@@ -166,7 +157,7 @@ export default function Navbar() {
 						className="box"
 						sx={{ display: 'flex', mr: 2 }}
 					>
-						<ModeButton mode={mode} toggleMode={toggleMode} />
+						<ModeButton />
 						<Search />
 						<IconButton
 							className="iconButton"
@@ -191,8 +182,8 @@ export default function Navbar() {
 									onClick={handleDrawerMenu(page)}
 									sx={{
 										'&:hover': {
-											bgcolor: mode === 'light' ? 'secondary.light' : 'info.dark',
-											color: mode === 'light' ? 'secondary.dark' : 'info.light',
+											bgcolor: darkMode ? 'info.dark' : 'secondary.light',
+											color: darkMode ? 'info.light' : 'secondary.dark',
 										}
 									}}
 								>
@@ -220,8 +211,8 @@ export default function Navbar() {
 												}}
 												sx={{
 													'&:hover': {
-														bgcolor: mode === 'light' ? 'secondary.light' : 'info.dark',
-														color: mode === 'light' ? 'secondary.dark' : 'info.light',
+														bgcolor: darkMode ? 'info.dark' : 'secondary.light',
+														color: darkMode ? 'info.light' : 'secondary.dark',
 													}
 												}}
 											>

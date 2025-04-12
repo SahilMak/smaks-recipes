@@ -1,5 +1,5 @@
 import { getDownloadURL, ref } from 'firebase/storage';
-import { storage } from './clientApp';
+import { storage } from './firebaseApp';
 
 export const getImageUrl = async (imageName: string): Promise<string> => {
     const imageRef = ref(storage, imageName);

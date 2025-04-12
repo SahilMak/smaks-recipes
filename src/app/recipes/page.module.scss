@@ -1,9 +1,33 @@
 @import '../../lib/breakpoints.scss';
 @import '../../lib/variables.scss';
 
-.text {
-    font-size: 6vh;
-    margin-bottom: 10vh;
-    max-width: 70vw;
-    text-align: center;
+.box {
+    display: flex;
+    height: 100%;
+    justify-content: center;
+    overflow-y: auto;
+    padding: 5vh;
+    width: 100%;
+
+    .gridContainer {
+        justify-content: center;
+        width: 80vw;
+
+        .stack {
+            height: 100%;
+
+            .image {
+                width: 100%;
+            }
+
+            .name {
+                font-size: 1.5em;
+                text-align: center;
+
+                @media (max-width: $mobile-medium) and (orientation: portrait) {
+                    font-size: 1.2em;
+                }
+            }
+        }
+    }
 }

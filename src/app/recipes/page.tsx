@@ -9,7 +9,7 @@ import Stack from '@mui/material/Stack';
 import Image from 'next/image';
 
 export default function Recipes() {
-	const recipes = useAppSelector((state) => state.recipes.items);
+	const recipes = useAppSelector((state) => state.recipes.list);
 
 	return (
 		<Box

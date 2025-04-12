@@ -16,6 +16,13 @@ export const recipesSlice = createSlice({
     reducers: {
         set: (state, action: PayloadAction<Recipe[]>) => {
             state.items = action.payload;
+        },
+        updateRecipe: (state, action: PayloadAction<Recipe>) => {
+            state.items.forEach((recipe) => {
+                if (recipe.name === action.payload.name) {
+                    recipe.ingredients = action.payload.ingredients;
+                }
+            });
         }
     }
 });

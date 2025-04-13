@@ -75,7 +75,7 @@ export default function Navbar() {
 				>
 					<Typography
 						className={shrikhand.variable}
-						color="primary"
+						color="primary.light"
 						noWrap
 						onClick={() => router.push('/')}
 						component="div"
@@ -91,15 +91,15 @@ export default function Navbar() {
 					{pages.map((page) => (
 						<Button
 							className="button"
-							color="inherit"
+							color="primary"
 							key={page.text}
 							onClick={handleOpen}
 							variant="text"
 							sx={{
 								my: 2,
 								'&:hover': {
-									bgcolor: 'primary.dark',
-									color: darkMode ? 'inherit' : 'background.default',
+									bgcolor: 'primary.light',
+									color: 'background.default',
 								}
 							}}
 						>

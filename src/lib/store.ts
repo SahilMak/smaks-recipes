@@ -1,10 +1,12 @@
 import { configureStore } from '@reduxjs/toolkit';
+import { darkModeSlice } from './features/darkMode/darkModeSlice';
 import { recipesSlice } from './features/recipes/recipesSlice';
 
 export const makeStore = () => {
 	return configureStore({
 	  	reducer: {
-			recipes: recipesSlice.reducer
+			recipes: recipesSlice.reducer,
+			darkMode: darkModeSlice.reducer
 		}
 	});
 };

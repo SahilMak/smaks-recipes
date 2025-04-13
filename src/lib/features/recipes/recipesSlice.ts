@@ -2,12 +2,12 @@ import { createSlice } from '@reduxjs/toolkit';
 import type { PayloadAction } from '@reduxjs/toolkit';
 import { Recipe } from '@/models/recipes';
 
-interface RecipeState {
-	items: Recipe[]
+interface RecipesState {
+	list: Recipe[]
 };
 
-const initialState: RecipeState = {
-    items: []
+const initialState: RecipesState = {
+    list: []
 };
 
 export const recipesSlice = createSlice({
@@ -15,10 +15,10 @@ export const recipesSlice = createSlice({
     initialState: initialState,
     reducers: {
         set: (state, action: PayloadAction<Recipe[]>) => {
-            state.items = action.payload;
+            state.list = action.payload;
         },
         updateRecipe: (state, action: PayloadAction<Recipe>) => {
-            state.items.forEach((recipe) => {
+            state.list.forEach((recipe) => {
                 if (recipe.name === action.payload.name) {
                     recipe.ingredients = action.payload.ingredients;
                 }

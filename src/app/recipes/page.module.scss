@@ -13,19 +13,26 @@
         justify-content: center;
         width: 80vw;
 
-        .stack {
-            height: 100%;
+        .grid {
 
-            .image {
-                width: 100%;
-            }
-
-            .name {
-                font-size: 1.5em;
-                text-align: center;
-
-                @media (max-width: $mobile-medium) and (orientation: portrait) {
-                    font-size: 1.2em;
+            .stack {
+                height: 100%;
+    
+                .image {
+                    width: 100%;
+                }
+    
+                .name {
+                    font-size: 2em;
+                    text-align: center;
+    
+                    @media (max-width: $desktop-medium) {
+                        font-size: 1.5em;
+                    }
+    
+                    @media (max-width: $mobile-medium) {
+                        font-size: 1.2em;
+                    }
                 }
             }
         }

@@ -25,9 +25,16 @@ export default function Recipes() {
 				<Grid
 					size={{ xs: 6, sm: 6, md: 4}}
 					key={recipe.name}
+					className={styles.grid}
+					sx={{
+						'&:hover': {
+							bgcolor: 'primary.light',
+							color: 'background.default',
+						}
+					}}
 				>
 					<Stack
-						spacing={2}
+						spacing={4}
 						className={styles.stack}
 						sx={{
 							justifyContent: "space-between",
@@ -37,6 +44,8 @@ export default function Recipes() {
 						<Image
 							src={ recipe.image }
 							alt={ recipe.name }
+							placeholder="blur"
+							quality={75}
 							className={styles.image}
 						/>
 						<div className={styles.name}>{ recipe.name }</div>

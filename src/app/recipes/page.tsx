@@ -45,7 +45,10 @@ export default function Recipes() {
 							src={ recipe.image }
 							alt={ recipe.name }
 							placeholder="blur"
-							quality={75}
+							height={625}
+							width={500}
+							quality={25}
+							loading="eager"
 							className={styles.image}
 						/>
 						<div className={styles.name}>{ recipe.name }</div>

@@ -25,4 +25,9 @@ jobs:
           repoToken: '${{ secrets.GITHUB_TOKEN }}'
           firebaseServiceAccount: '${{ secrets.FIREBASE_SERVICE_ACCOUNT_SMAKSRECIPES }}'
           channelId: live
-          projectId: smaksrecipes
+          apiKey: '${{ secrets.NEXT_PUBLIC_FIREBASE_API_KEY }}'
+          authDomain: '${{ secrets.NEXT_PUBLIC_FIREBASE_AUTH_DOMAIN }}'
+          projectId: '${{ secrets.NEXT_PUBLIC_FIREBASE_PROJECT_ID }}'
+          storageBucket: '${{ secrets.NEXT_PUBLIC_FIREBASE_STORAGE_BUCKET }}'
+          messagingSenderId: '${{ secrets.NEXT_PUBLIC_FIREBASE_MESSAGING_SENDER_ID }}'
+          appId: '${{ secrets.NEXT_PUBLIC_FIREBASE_APP_ID }}'
